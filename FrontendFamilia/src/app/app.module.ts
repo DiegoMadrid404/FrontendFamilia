@@ -23,12 +23,14 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { HijosComponent } from './hijos/hijos.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PadresComponent
+    PadresComponent,
+    HijosComponent
   ],
   imports: [
     BrowserModule,

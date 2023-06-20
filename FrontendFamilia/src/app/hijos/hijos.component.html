@@ -1,0 +1,78 @@
+<div mat-dialog-title>
+    <h1>Información hijos</h1>
+</div>
+<form [formGroup]="form" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Identificación:</mat-label>
+                <input matInput type="number" placeholder="Cedula" formControlName="identificacion">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Nombres:</mat-label>
+                <input matInput type="text" formControlName="nombres">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Apellidos:</mat-label>
+                <input matInput type="text" formControlName="apellidos">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Fecha de nacimiento:</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="fechaNacimiento">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+        </div>
+        <div class="row">
+            <mat-radio-group aria-label="Seleccione un genero" appearance="outline" formControlName="genero">
+                <mat-label><b>Genero:</b></mat-label>
+                <br>
+                <mat-radio-button value="F">Femenino</mat-radio-button>
+                <mat-radio-button value="M">Masculino</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <br>
+        <div class="row">
+            <mat-radio-group aria-label="Seleccione" appearance="outline" formControlName="estudia">
+                <mat-label><b>Estudia:</b></mat-label>
+                <br>
+                <mat-radio-button value="S">Si</mat-radio-button>
+                <mat-radio-button value="N">No</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Estatura:</mat-label>
+                <input matInput type="number" placeholder="cm" formControlName="estatura">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Identificación Padre:</mat-label>
+                <input matInput type="number" placeholder="Cedula" formControlName="identificacionPadre">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Identificación Madre:</mat-label>
+                <input matInput type="number" placeholder="cm" formControlName="identificacionMadre">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Descripción Fisica</mat-label>
+                <textarea matInput formControlName="descripcionFisica"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancelar</button>
+        <button mat-raised-button color="primary" type="submit">{{esActualizar?'Actualizar':'Guardar'}}</button>
+
+    </div>
+</form>
