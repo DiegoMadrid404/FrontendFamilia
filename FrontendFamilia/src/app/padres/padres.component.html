@@ -1,11 +1,68 @@
 <div mat-dialog-title>
     <h1>Información Padres</h1>
 </div>
-<div mat-dialog-content>
+<form [formGroup]="form" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Identificación:</mat-label>
+                <input matInput type="number" placeholder="Cedula" formControlName="identificacion">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Nombres:</mat-label>
+                <input matInput type="text" formControlName="nombres">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Apellidos:</mat-label>
+                <input matInput type="text" formControlName="apellidos">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Fecha de nacimiento:</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="fechaNacimiento">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
 
-</div>
-<div mat-dialog-actions>
-    <button mat-raised-button>Cancelar</button>
-    <button mat-raised-button color="primary">Guardar</button>
+        </div>
+        <div class="row">
+            <mat-radio-group aria-label="Seleccione un genero" appearance="outline" formControlName="genero">
+                <mat-label><b>Genero:</b></mat-label>
+                <br>
+                <mat-radio-button value="F">Femenino</mat-radio-button>
+                <mat-radio-button value="M">Masculino</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div class="row">
+            <mat-radio-group aria-label="Seleccione un tipo de empleo" appearance="outline"
+                formControlName="tipoEmpleo">
+                <mat-label><b>Tipo de empleo:</b></mat-label>
+                <br>
+                <mat-radio-button value="E">Empleado</mat-radio-button>
+                <mat-radio-button value="I">Independiente</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Experiencia laboral:</mat-label>
+                <input matInput type="number" placeholder="Numero de meses" formControlName="experienciaLaboral">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Observaciones</mat-label>
+                <textarea matInput formControlName="observaciones"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
 
-</div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancelar</button>
+        <button mat-raised-button color="primary" type="submit">{{esActualizar?'Actualizar':'Guardar'}}</button>
+
+    </div>
+</form>
