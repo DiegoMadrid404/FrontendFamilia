@@ -10,5 +10,6 @@ Este proyecto permita realizar el registro de información correspondiente a los
 ![image](https://github.com/DiegoMadrid404/FrontendFamilia/assets/71359745/edefe22d-5b33-4a31-93c3-4c389f5e8a9e)
 
  
-ilia/assets/71359745/ea6d06f5-9dcf-4575-836f-35582d4c9e33)
+![image](https://github.com/DiegoMadrid404/FrontendFamilia/assets/71359745/33c02e5b-df1a-40e6-816c-e9e6aec8d417)
+
 
